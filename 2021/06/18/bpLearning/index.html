@@ -81,6 +81,26 @@
 
 <img src="/2021/06/18/bpLearning/bp1-4.png" style="zoom:50%;">
 
+<h2 id="Repeater"><a href="#Repeater" class="headerlink" title="Repeater"></a>Repeater</h2><p>Repeater 是一个手动修改并补发个别 HTTP 请求，并分析他们的响应的工具。</p>
+<p>还是在DVWA Security的low级别下进行，抓包，发送到Repeater模块，在Request中Go后，在Response中的Render渲染后查看结果。</p>
+<img src="/2021/06/18/bpLearning/bp2-1.png" style="zoom:50%;">
+
+<ul>
+<li><p>一些功能</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">对于 Repeter 模块的主要设置是在顶级菜单栏的 Repeter 菜单中，选项包括：</span><br><span class="line"></span><br><span class="line">update content-length：更新头部的长度</span><br><span class="line">pdate gzip/deflate：设置 Burp 是否要对收到的回复中的 gzip 和 deflate 进行自动解压</span><br><span class="line">fllow redirections：在遇到重定向时 Burp 该怎么处理。</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="Scanner"><a href="#Scanner" class="headerlink" title="Scanner"></a>Scanner</h2><p>Scanner 是一个进行自动发现 web 应用程序的安全漏洞的工具。 Burp Scanner 可以执行两种扫描类型：主动扫描（Active scanning），被动扫描（Passive scanning）。</p>
+<p><img src="/2021/06/18/bpLearning/bp3-1.png"></p>
+<p><img src="/2021/06/18/bpLearning/bp3-2.png"></p>
+<p><img src="/2021/06/18/bpLearning/bp3-3.png"></p>
+<p><img src="/2021/06/18/bpLearning/bp3-4.png"></p>
+<p><img src="/2021/06/18/bpLearning/bp3-5.png"></p>
+<p><img src="/2021/06/18/bpLearning/bp3-6.png"></p>
+<p>在proxy Intercept右键scan后，选择需要的扫描类型，在DashBoard中的Tasks看扫描进度：</p>
+<img src="/2021/06/18/bpLearning/bp3-7.png" style="zoom:50%;">
+
+
+
 
       </div>
     </div>
