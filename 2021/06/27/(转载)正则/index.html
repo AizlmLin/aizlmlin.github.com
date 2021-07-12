@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Aizlm">
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <script id="hexo-configurations">
+  var CONFIG = {
+    root: '/',
+    theme: 'lx',
+    version: '1.4.5',
+    localsearch:{
+      "enable": false,
+      "trigger": "auto",
+      "top_n_per_article": 1,
+      "unescape": false,
+      "preload": false
+      },
+    path: '-'
+  };
+</script>
+
+  <link rel="shortcut icon" href="/images/fav-1.png">
+  <link rel="stylesheet" href="/css/main.css">
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/jquery.jside.menu.js"></script>
+	<script>
+	$(document).ready(function(){
+	$(".menu-container").jSideMenu({
+	    jSidePosition: "position-right",
+	    jSideSticky: true,
+	    jSideSkin: "endless-river",
+	     });
+	}); 
+	</script>
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300|Noto+Serif+SC&amp;display=swap">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+<meta name="generator" content="Hexo 5.4.0"></head>
+<body>
+<div class="single">
+<div id="page">
+<div id="lx-aside" style="background-image: url(/images/bg-2.png)" data-stellar-background-ratio="0.5">
+  <div class="overlay">
+  <div class="page-title">
+    <div class="avatar"><a href="/"><img src="/images/ava-1.png"></a></div>
+    <span>2021-06-27</span>
+    <h2></h2>
+    
+    </div>
+</div>
+</div>
+<div id="lx-main-content">
+  <div class="lx-post">
+    <div class="lx-entry padding">
+      <div>
+        <h2 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h2><p>&nbsp;&nbsp;练习网站 <a target="_blank" rel="noopener" href="https://regexr-cn.com/">https://regexr-cn.com/</a></p>
+<h3 id="字符组"><a href="#字符组" class="headerlink" title="字符组"></a>字符组</h3><p>&nbsp;&nbsp;字符组 [] 允许来匹配一组可能出现的字符</p>
+<pre><code>[Py]thon        匹配：python、Python
+[Rr]ub[ye]        匹配：Ruby、Rube、ruby、rube
+</code></pre>
+<p>&nbsp;&nbsp;如果需要匹配一定区间的字符组，可以使用连字符 - 进行匹配</p>
+<pre><code>[a-z]            匹配：a到z的任意字母
+[0-9]            匹配：0-9的任意数字
+[a-zA-Z]        匹配：大小写所有字母
+[\-]            匹配：特殊字符（需要转义）
+</code></pre>
+<p>&nbsp;&nbsp;通过 ^ 可以对字符组进行取反</p>
+<pre><code>[^0-9]            匹配：不匹配0-9的数字
+[a-zA-z]+[^0-9]    匹配：只有大小写字母没有数字
+</code></pre>
+<h3 id="快捷方式"><a href="#快捷方式" class="headerlink" title="快捷方式"></a>快捷方式</h3><p>&nbsp;&nbsp;正则表达式允许通过更简洁的方式来匹配</p>
+<pre><code>\w            匹配字母、数字、下划线
+\d            匹配任意数字
+\s            匹配空白
+\b            匹配单词边界
+快捷方式取大写表示取反，例如 \W \D
+
+[a-z\d]        匹配数字和小写字母
+</code></pre>
+<h3 id="符号"><a href="#符号" class="headerlink" title="符号"></a>符号</h3><p>&nbsp;&nbsp; ^ 符号也代表着一个字符串的开始</p>
+<pre><code>区间里才代表取反
+</code></pre>
+<p>&nbsp;&nbsp; $ 指定一个字符串的结束</p>
+<p>&nbsp;&nbsp; . 代表匹配单个字符，只能出现在方括号外</p>
+<p>&nbsp;&nbsp; ? 代表可选字符，指定一个字符、字符组或其他基本单元可选，出现零次或一次</p>
+<pre><code>.?            表示这个位置可有可无
+</code></pre>
+<h3 id="匹配多个数据"><a href="#匹配多个数据" class="headerlink" title="匹配多个数据"></a>匹配多个数据</h3><p>&nbsp;&nbsp;字符组后加上 {N} 就可以表示希望出现N次</p>
+<pre><code>\d&#123;3&#125;-\d&#123;5&#125;    匹配010-88480
+</code></pre>
+<p>&nbsp;&nbsp;若不清楚匹配字符组重复的次数，通过重复区间 {M,N} 表示</p>
+<p>&nbsp;&nbsp;如果遇到字符组重复次数没有边界，可用开区间 {3,}    </p>
+<p>&nbsp;&nbsp;也有两个速写符进行重复， + 匹配1到无数个， * 匹配0到无数个</p>
+<h3 id="分组"><a href="#分组" class="headerlink" title="分组"></a>分组</h3><p>&nbsp;&nbsp;在正则表达式中还提供了一种将表达式分组的机制，当使用分组时，除了获得整个匹配。还能够在匹配中选择每一个分组。或者说，从整个式子匹配出来的字符用 () 来挑选需要输出的</p>
+<pre><code>&lt;div&gt;.*?&lt;/div&gt;            //匹配整个标签
+
+&lt;div&gt;(.*?)&lt;/div&gt;        //匹配标签内的内容
+</code></pre>
+<p>&nbsp;&nbsp;使用分组的同时还可以使用 或者（or）条件。</p>
+<pre><code>(.mp4|.avi|.wmv|.rmvb)    //匹配四种格式文件
+</code></pre>
+<p>&nbsp;&nbsp;有时候需要数据整体特性来进行匹配，但只需要部分数据，这时候就需要非捕获组 (?:表达式)</p>
+<pre><code>(?:\w&#123;2,4&#125;)[\-\:](\d&#123;5&#125;)  //从12345-75855 提取75855
+</code></pre>
+<p>&nbsp;&nbsp;正则表达式还提供了一种引用之前匹配分组的机制，有些时候，我们或许会寻找到一个子匹配，该匹配接下来会再次出现</p>
+<pre><code>(\w)(\w)\2\1            //匹配 abba 式
+</code></pre>
+<h3 id="断言"><a href="#断言" class="headerlink" title="断言"></a>断言</h3><p>&nbsp;&nbsp;很多人也称先行断言和后行断言为环视，也有人叫预搜索</p>
+<h4 id="先行断言"><a href="#先行断言" class="headerlink" title="先行断言"></a>先行断言</h4><p>&nbsp;&nbsp;正向先行断言：(?=表达式)，指在某个位置向右看，表示所在位置右侧必须能匹配表达式，或者说是一个判断式，要求后面内容满足表达式</p>
+<pre><code>(?=.*?[a-z])(?=.*?[A-Z])(\w&#123;8,&#125;)
+//至少一个大写字母
+//至少一个小写字母
+//至少一个数字
+//至少8个字符
+</code></pre>
+<p>&nbsp;&nbsp;反向先行断言 (?!表达式) 的作用是保证右边不能出现某字符</p>
+<pre><code>\w+[@](?!qq)            //匹配不是qq邮箱的
+\&lt;(?!p|\/p)                //匹配非p&gt;或&lt;/p&gt;标签
+                        //这里面 / 为转义符号
+</code></pre>
+<h4 id="后行转义"><a href="#后行转义" class="headerlink" title="后行转义"></a>后行转义</h4><p>&nbsp;&nbsp;先行断言和后行断言只有一个区别，即先行断言从左往右看，后行断言从右往左看。</p>
+<pre><code>(?&lt;=王).+                匹配王姓同学
+</code></pre>
+
+      </div>
+    </div>
+  </div>
+</div>
+<div class="lx-navigation">
+	<div class="lx-cover prev lx-cover-sm" style="background-image: url(/images/footer_1.jpg)">
+		<div class="overlay"></div>
+		<a class="copy" href="/2021/07/01/PHP%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/">
+			<div class="display-t">
+				<div class="display-tc">
+					<div>
+						<span>Next</span>
+						<h3></h3>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+        <div class="lx-cover next lx-cover-sm" style="background-image: url(/images/footer_2.jpg)">
+		<div class="overlay"></div>
+		<a class="copy" href="/2021/06/23/sqli-labs/">
+			<div class="display-t">
+				<div class="display-tc">
+					<div>
+						<span>Prev</span>
+						<h3>sqli-labs</h3>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+</div>
+</div>
+
+<footer>
+  <div>
+  Copyright &copy; 2019.<a href="/">Hexo</a><br>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme <a href="https://lx.blleng.cn" target="_blank">Lx</a><br>
+  </div>
+</footer>
+</div>
+
+<button class="menu-trigger"></button>
+<div class="menu">
+  <div class="menu-head">
+    <span class="layer">
+      <div class="col">
+        <div class="row for-pic">
+          <div class="profile-pic">
+            <a href="/"><img src="/images/ava-1.png" alt="Aizlm"/></a>
+          </div>
+        </div>
+        <div class="row for-name">
+          <p>Aizlm</p>
+          <span class="tagline">不爱学习的小胖子</span>
+        </div>
+      </div>
+    </span>
+  </div>
+  <nav class="menu-container">
+  <ul class="menu-items">
+    <li><a href="/"><i class="fa fa-home fa-fw"></i>首页</a></li>
+    <li><a href="/archives/"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+    <li class="has-sub"><span class="dropdown-heading">
+      <i class="fa fa-bookmark fa-fw"></i>页面</span>
+        <ul>
+          <li><a href="/guestbook">留言</a></li>
+        <li><a href="/about">关于</a></li>
+        </ul>
+    </li>
+    
+  </ul>
+  </nav>
+</div>
+
+<div class="gototop js-top">
+  <a href="#" class="js-gotop"><i class="fa fa-arrow-up"></i></a>
+</div>
+<script src="/js/jquery.easing.min.js"></script>
+<script src="/js/jquery.waypoints.min.js"></script>
+<script src="/js/jquery.stellar.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>
