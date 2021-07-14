@@ -163,7 +163,21 @@
 <img src="/images/ichunqiu-web/who-4.png" alt="who-4" style="zoom:50%;" align="center">
 
 <p>但不知道为啥访问不到这个flag，一直显示404，很多人都是这种情况</p>
-<h2 id><a href="#" class="headerlink" title></a></h2>
+<h2 id="Web-Do-you-know-upload"><a href="#Web-Do-you-know-upload" class="headerlink" title="Web Do you know upload?"></a>Web Do you know upload?</h2><p>扫描目录，看到有config.php和/upload上传网址，说明上传的文件会到这个地方：</p>
+<img src="/images/ichunqiu-web/webupload-1.png" alt="webupload-1" style="zoom: 67%;">
+
+<p>上传文件php，发现不行，然后上传.jpg文件发现可以了：</p>
+<img src="/images/ichunqiu-web/webupload-2.png" alt="webupload-2" style="zoom:50%;">
+
+<p>然后蚁剑连接发现<strong>filename=.jpg</strong>，连接不成功，改成**.php**，连接成功，发现没有任何flag相关信息，有config.php，打开发现：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">error_reporting(<span class="number">0</span>);</span><br><span class="line">session_start();</span><br><span class="line"><span class="variable">$servername</span> = <span class="string">&quot;localhost&quot;</span>;</span><br><span class="line"><span class="variable">$username</span> = <span class="string">&quot;ctf&quot;</span>;</span><br><span class="line"><span class="variable">$password</span> = <span class="string">&quot;ctfctfctf&quot;</span>;</span><br><span class="line"><span class="variable">$database</span> = <span class="string">&quot;ctf&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建连接</span></span><br><span class="line"><span class="variable">$conn</span> = mysql_connect(<span class="variable">$servername</span>,<span class="variable">$username</span>,<span class="variable">$password</span>) <span class="keyword">or</span> <span class="keyword">die</span>(<span class="string">&quot; connect to mysql error&quot;</span>);</span><br><span class="line">mysql_select_db(<span class="variable">$database</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>有数据库的账户和密码，进行数据库连接就得到了相应的flag：</p>
+<img src="/images/ichunqiu-web/webupload-3.png" alt="webupload-3" style="zoom: 50%;">
+
+
+
+<h2 id="Web-Login"><a href="#Web-Login" class="headerlink" title="Web Login"></a>Web Login</h2>
       </div>
     </div>
   </div>
